@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
+
+	adventofcode2023 "github.com/schubam/advent-of-code-2023"
 )
 
 var substitutions = map[string]string{
@@ -25,7 +26,7 @@ func main() {
 }
 
 func V2() int {
-	input := strings.Trim(ReadFile("./cmd/day01/v1.txt"), "\n")
+	input := strings.Trim(adventofcode2023.ReadFile("./cmd/day01/v1.txt"), "\n")
 	lines := strings.Split(input, "\n")
 
 	var sum int
@@ -41,7 +42,7 @@ func V2() int {
 }
 
 func V1() int {
-	input := strings.Trim(ReadFile("./cmd/day01/v1.txt"), "\n")
+	input := strings.Trim(adventofcode2023.ReadFile("./cmd/day01/v1.txt"), "\n")
 	lines := strings.Split(input, "\n")
 	var sum int
 	for _, line := range lines {
@@ -87,10 +88,3 @@ func extractDigits(s string) [2]int {
 	return [2]int{firstN, lastN}
 }
 
-func ReadFile(path string) string {
-	input, err := os.ReadFile(path)
-	if err != nil {
-		fmt.Printf("error: %s\n", err)
-	}
-	return string(input)
-}
